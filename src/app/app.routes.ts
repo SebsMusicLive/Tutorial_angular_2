@@ -5,6 +5,8 @@ import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import { ContactInfoComponent } from './contact-info/contact-info.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
 export const routes: Routes = [
     {
@@ -21,7 +23,17 @@ export const routes: Routes = [
       },
       {
         path: 'contact',
-        component: ContactComponent
+        component: ContactComponent,
+        children:[
+          {
+            path:'',
+            component: ContactInfoComponent
+          },
+          {
+            path:'details',
+            component: ContactDetailsComponent
+          }
+        ]
       },
       {
         path: 'about',
